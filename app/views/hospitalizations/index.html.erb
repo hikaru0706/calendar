@@ -1,0 +1,7 @@
+<h1>入院一覧</h1>
+
+ <ul>
+     <% @hospitalizations.each do |hospitalization| %>
+     <li><%= hospitalization.hospitalization_start %></li>
+     <% end %>
+ </ul>

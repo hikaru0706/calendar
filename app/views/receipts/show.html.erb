@@ -1,0 +1,18 @@
+<h1>details of receiptid: <%= @receipt.id %></h1>
+
+<%#each do のあとはかならず endで閉じなければならない！%>
+
+  <% @outpatients.each do |outpatient| %>
+  <p>outpatientid:<%=  outpatient.id %>　outpatient_day:<%= outpatient.outpatient_day %> </p>
+  <% end %>
+
+  <% @hospitalizations.each do |hospitalization| %>
+  <p>hospitalization_id:<%= hospitalization.id %>　hospitalization_start :<%= hospitalization.hospitalization_start %>　hospitalization_end:<%= hospitalization.hospitalization_end %> </p>
+  <% end %>
+
+  <% @surgeries.each do |surgery| %>
+  <p>surgeryid:<%= surgery.id %> surgery_day :<%= surgery.surgery_day %>  </p>
+  <% end %>
+
+ 
+  

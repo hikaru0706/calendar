@@ -1,0 +1,7 @@
+<h1>レセプト一覧</h1>
+
+<ul>
+  <% @receipts.each do |receipt| %>
+    <li><%= receipt.receipt_day %></li>
+  <% end %>
+</ul>

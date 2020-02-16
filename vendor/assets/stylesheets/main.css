@@ -1,0 +1,87 @@
+h1 {
+    font-size: 18px;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+/*td {*/
+/*    border: 1px solid #ddd;*/
+/*    padding: 5px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*th {*/
+/*    border: 1px solid #ddd;*/
+/*    padding: 5px;*/
+/*    text-align: center;*/
+/*}*/
+td, th {
+    border-bottom: 5px solid rgb(255, 255, 0);
+    /*border-left:5px solid rgb(255, 255, 255);*/
+    cursor: pointer;
+    padding: 5px;
+    margin: 0px;
+    position: relative;
+}
+
+/*td:hover { */
+/*    background-color: yellow;*/
+/*}*/
+
+.outpatient {
+    background-color: rgb(0,255,0);
+    /*border: 5px solid aqua;*/
+    border-radius: 15px;
+
+}
+
+.surgery_outpatient {
+    background: linear-gradient(to bottom, rgb(0, 255, 0) 49%,rgb(0, 255, 0) 1%, yellow 1%,yellow 50%);
+    border-radius: 15px;
+
+}
+
+.surgery_hospitalization {
+    background: linear-gradient(to bottom, yellow 49%,yellow 1%, aqua 1%, aqua 50%);
+    border-radius: 15px;
+
+}
+
+.other_outpatient {
+    background: rgb(255, 0, 255);
+    border-radius: 15px;
+}
+
+.hospitalization {
+    background: rgb(0, 255, 255);
+    border-radius: 15px;
+
+}
+
+.hospitalization_limit{
+    border-bottom: 5px solid aqua;
+}
+    
+.surgery_limit{
+    border-bottom: 5px solid yellow;
+}    
+
+.hospitalization2 {
+    background: rgb(0, 0, 255);
+}
+
+.highlighted {
+      background-color:#aaa;
+}
+
+
+/*td:first-child {*/
+/*    color: red;*/
+/*}*/
+
+/*td:last-child {*/
+/*    color: royalblue;*/
+/*}*/

@@ -1,0 +1,4 @@
+<h1>details of policyid: <%= @policy.id %></h1>
+<% @receipts.each do |receipt| %>
+  <p>List of receipt days : <%= receipt.receipt_day %></p>
+<% end %>
