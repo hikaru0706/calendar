@@ -29,8 +29,14 @@ for (let w = 0; w <= pastmonth; w++) {
     
     contractdate.setMonth(contractdate.getMonth()+w);
 
+    if (w%2==0){
+    calendarHtml += '<tr class=odd>';
+    }
+    else{
+    calendarHtml += '<tr class=even>';
+    }
     
-    calendarHtml += '<tr>';
+    
     calendarHtml += '<th>'+ contractdate.getFullYear()+'/'+(contractdate.getMonth()+1)+'</th>';
     dayCount = 1;
 

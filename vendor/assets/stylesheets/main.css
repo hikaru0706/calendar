@@ -19,7 +19,7 @@ table {
 /*    text-align: center;*/
 /*}*/
 td, th {
-    border-bottom: 5px solid rgb(255, 255, 0);
+    border-bottom: 5px solid rgb(255, 255, 255);
     /*border-left:5px solid rgb(255, 255, 255);*/
     cursor: pointer;
     padding: 5px;
@@ -38,14 +38,18 @@ td, th {
 
 }
 
+.odd {
+    background-color: rgba(0,0,0,.05);
+}
+
 .surgery_outpatient {
     background: linear-gradient(to bottom, rgb(0, 255, 0) 49%,rgb(0, 255, 0) 1%, yellow 1%,yellow 50%);
-    border-radius: 15px;
+    border-radius: 1px;
 
 }
 
 .surgery_hospitalization {
-    background: linear-gradient(to bottom, yellow 49%,yellow 1%, aqua 1%, aqua 50%);
+    background: linear-gradient(to bottom, aqua 49%,aqua 1%, yellow 1%, yellow 50%);
     border-radius: 15px;
 
 }
@@ -57,7 +61,7 @@ td, th {
 
 .hospitalization {
     background: rgb(0, 255, 255);
-    border-radius: 15px;
+    border-radius: 0px;
 
 }
 
