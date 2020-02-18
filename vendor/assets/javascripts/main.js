@@ -29,12 +29,8 @@ for (let w = 0; w <= pastmonth; w++) {
     
     contractdate.setMonth(contractdate.getMonth()+w);
 
-    if (w%2==0){
-    calendarHtml += '<tr class=odd>';
-    }
-    else{
-    calendarHtml += '<tr class=even>';
-    }
+    calendarHtml += '<tr>';
+
     
     
     calendarHtml += '<th>'+ contractdate.getFullYear()+'/'+(contractdate.getMonth()+1)+'</th>';
@@ -58,16 +54,22 @@ console.log("step5",calendarHtml);
 
 document.querySelector('#calendar').innerHTML = calendarHtml;
 
+// var color = 'black';
 
+// $('.click_btn').on('click', function(e) {
+//   e.preventDefault();
+//   color = $(this).css('color');
+// }) ;
+
+// $('.click_td').on('click', function(e) {
+//   e.preventDefault();
+//   $(this).css('color', color);
+// });
 
 $(function () {
       var first;
       var second;
 
-      
-      $("#our_calendar td")
-
-        
 
         
       $("#our_calendar td").on("contextmenu", function(e) {
