@@ -93,22 +93,22 @@ $(function () {
       // console.log('background',$(this).css('background-color'))
       // $(this).addClass('outpatient')
        
-       var classArray = ['other_outpatient','outpatient','surgery_outpatient','surgery_hospitalization'];
-        var arrLen = classArray.length;
+    //   var classArray = ['other_outpatient','outpatient','surgery_outpatient','surgery_hospitalization'];
+    //     var arrLen = classArray.length;
 
-        var classIndex = $(this).data('class-index');
-        console.log('data-class-index',classIndex);
-        // console.log('arrLen',arrLen);
+    //     var classIndex = $(this).data('class-index');
+    //     console.log('data-class-index',classIndex);
+    //     // console.log('arrLen',arrLen);
 
-       $(this).removeClass(classArray[classIndex]);
-       if(classIndex < (arrLen-1)) {
-         classIndex++;
-       }  else {
-         //reset class index
-         classIndex = 0;
-       }
-       $(this).addClass(classArray[classIndex]);
-       $(this).data('class-index',classIndex);
+    //   $(this).removeClass(classArray[classIndex]);
+    //   if(classIndex < (arrLen-1)) {
+    //      classIndex++;
+    //   }  else {
+    //      //reset class index
+    //      classIndex = 0;
+    //   }
+    //   $(this).addClass(classArray[classIndex]);
+    //   $(this).data('class-index',classIndex);
       });
       
 
@@ -194,14 +194,52 @@ $(function () {
   // $("#"+id).removeAttr("class")     
   $("#"+id).addClass(color);}
   
+  
 
+var $ = jQuery;
+var style ='';
+$('.click_btn').on('click', function(e) {
+  e.preventDefault();
+  style = $(this).data().style;
+});
 
- $("button").click(function(){
-    $("#our_calendar td").each(function(){
-      // $(this).css("background-color","rgba(0, 0, 0, 0)");
-      $(this).removeAttr("class")     
-      first = null;
-      second = null;
-    });
+ let clicked =[];
+ $("#our_calendar td").on('click', function(){
+  let clickedID=$(this).attr('id');
+  clicked.push(clickedID);
+  $(this).removeClass().addClass(style);
+ });
+
+  $("#btnCancel").on('click',() => {
+    if(clicked.length) {
+      let lastClicked = clicked.pop();
+      $(`td#${lastClicked}`).removeClass();
+    }
   });
+
+
+// $(function() {
+//   let clicked = [];
+//   $("#our_calendar td").click(function() {
+//     let clickedID = $(this).attr('id');
+//     clicked.push(clickedID);
+//     $(this).addClass("red");
+//   });
+//   $("#btnCancel").on('click',() => {
+//     if(clicked.length) {
+//       let lastClicked = clicked.pop();
+//       $(`td#${lastClicked}`).removeClass("red");
+//     }
+//   });
+// });
+
+
+//  $("button").click(function(){
+//     $("#our_calendar td").each(function(){
+//       // $(this).css("background-color","rgba(0, 0, 0, 0)");
+//       $(this).removeAttr("class")     
+//       first = null;
+//       second = null;
+//     });
+//   });
 
