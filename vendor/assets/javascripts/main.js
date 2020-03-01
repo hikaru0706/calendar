@@ -243,3 +243,6 @@ $('.click_btn').on('click', function(e) {
 //     });
 //   });
 
+jQuery(":hover").each(function () {
+   console.log($(this).html());
+});
