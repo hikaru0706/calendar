@@ -66,35 +66,35 @@ document.querySelector('#calendar').innerHTML = calendarHtml;
 //   $(this).css('color', color);
 // });
 
-$(function () {
-      var first;
-      var second;
+// $(function () {
+//       var first;
+//       var second;
 
 
         
-      $("#our_calendar td").on("contextmenu", function(e) {
-        e.preventDefault();
-        $(this).removeAttr('class');
-        }).click(function() {
+//       $("#our_calendar td").on("contextmenu", function(e) {
+//         e.preventDefault();
+//         $(this).removeAttr('class');
+//         }).click(function() {
           
-          surgery_day=new Date($(this).data('day'))
-          console.log("surgery_day",surgery_day);
+//           surgery_day=new Date($(this).data('day'))
+//           console.log("surgery_day",surgery_day);
           
-          surgery_limit=new Date(surgery_day.setDate(surgery_day.getDate()+60))
-          console.log("surgery_limit",surgery_limit);
+//           surgery_limit=new Date(surgery_day.setDate(surgery_day.getDate()+60))
+//           console.log("surgery_limit",surgery_limit);
           
-          surgery_limit_day=surgery_limit.getFullYear()+'/'+(surgery_limit.getMonth()+1)+'/'+surgery_limit.getDate()
-          console.log("surgery_limit_day",surgery_limit_day);
+//           surgery_limit_day=surgery_limit.getFullYear()+'/'+(surgery_limit.getMonth()+1)+'/'+surgery_limit.getDate()
+//           console.log("surgery_limit_day",surgery_limit_day);
 
-          var surgery_limit_id = document.querySelector(`td[data-day= "${surgery_limit_day}"]`).id;
+//           var surgery_limit_id = document.querySelector(`td[data-day= "${surgery_limit_day}"]`).id;
         
-        console.log("surgery_limit_day",surgery_limit_id);        
+//         console.log("surgery_limit_day",surgery_limit_id);        
        
-      // console.log('background',$(this).css('background-color'))
-      // $(this).addClass('outpatient')
+//       // console.log('background',$(this).css('background-color'))
+//       // $(this).addClass('outpatient')
        
-    //   var classArray = ['other_outpatient','outpatient','surgery_outpatient','surgery_hospitalization'];
-    //     var arrLen = classArray.length;
+//     //   var classArray = ['other_outpatient','outpatient','surgery_outpatient','surgery_hospitalization'];
+//     //     var arrLen = classArray.length;
 
     //     var classIndex = $(this).data('class-index');
     //     console.log('data-class-index',classIndex);
@@ -109,95 +109,97 @@ $(function () {
     //   }
     //   $(this).addClass(classArray[classIndex]);
     //   $(this).data('class-index',classIndex);
-      });
+    //   });
       
 
 
-      $("#our_calendar td")
-          .mousedown(function () {
+    //   $("#our_calendar td")
+    //       .mousedown(function () {
             
-          first = this.id;
+    //       first = this.id;
           
-          firstday=new Date($(this).data('day'))
+    //       firstday=new Date($(this).data('day'))
           
-          console.log("firstday",firstday);
+    //       console.log("firstday",firstday);
           
-          underlimit=new Date(firstday.setDate(firstday.getDate()-60))
+    //       underlimit=new Date(firstday.setDate(firstday.getDate()-60))
           
-          underdate=underlimit.getFullYear()+'/'+(underlimit.getMonth()+1)+'/'+underlimit.getDate()
+    //       underdate=underlimit.getFullYear()+'/'+(underlimit.getMonth()+1)+'/'+underlimit.getDate()
           
-          console.log("underdate",underdate);
+    //       console.log("underdate",underdate);
           
           
-          // console.log("underid",underid);
+    //       // console.log("underid",underid);
           
-          return false; // prevent text selection
-        })
-        .mouseup(function () {
-          second = this.id;
+    //       return false; // prevent text selection
+    //     })
+    //     .mouseup(function () {
+    //       second = this.id;
          
-          endday=new Date($(this).data('day'))
+    //       endday=new Date($(this).data('day'))
           
-          console.log("endday",endday);
+    //       console.log("endday",endday);
           
-          upperlimit=new Date(endday.setDate(endday.getDate()+120))
+    //       upperlimit=new Date(endday.setDate(endday.getDate()+120))
           
-          console.log("upperlimit",upperlimit);
+    //       console.log("upperlimit",upperlimit);
           
-          upperdate=upperlimit.getFullYear()+'/'+(upperlimit.getMonth()+1)+'/'+upperlimit.getDate()
+    //       upperdate=upperlimit.getFullYear()+'/'+(upperlimit.getMonth()+1)+'/'+upperlimit.getDate()
           
-          console.log("upperdate",upperdate);
+    //       console.log("upperdate",upperdate);
 
-          var upperid = document.querySelector(`td[data-day= "${upperdate}"]`).id;
+    //       var upperid = document.querySelector(`td[data-day= "${upperdate}"]`).id;
          
-          var underid = document.querySelector(`td[data-day= "${underdate}"]`).id;
+    //       var underid = document.querySelector(`td[data-day= "${underdate}"]`).id;
 
 
-        console.log("underid",underid);
-         console.log("upperid",upperid);      
-         console.log("first",first);
-         console.log("second",second);
+    //     console.log("underid",underid);
+    //      console.log("upperid",upperid);      
+    //      console.log("first",first);
+    //      console.log("second",second);
           
-          if(first==second){
-            classchanger(first,null);
-          }
-          else if(first<second){
+    //       if(first==second){
+    //         classchanger(first,null);
+    //       }
+    //       else if(first<second){
                 
-                console.log("eventfired");
+    //             console.log("eventfired");
                 
-               for(var j=underid;j<=upperid;j++){
-                //  console.log("hospitalizationlimit_fired",j);
-               classchanger(j,'hospitalization_limit');}  
+    //           for(var j=underid;j<=upperid;j++){
+    //             //  console.log("hospitalizationlimit_fired",j);
+    //           classchanger(j,'hospitalization_limit');}  
               
-              // for(var k=second;k<=second+120;k++){
-              // classchanger(k,'hospitalization_limit');}               
+    //           // for(var k=second;k<=second+120;k++){
+    //           // classchanger(k,'hospitalization_limit');}               
               
-              for (var i=first;i<=second; i++){
-                  console.log("hospitalization_fired");
-                classchanger(i,'hospitalization');}
-          }
-          else{
-              for (var i=second;i<=first; i++)
-                classchanger(i,'hospitalization');}   
-          return false;
+    //           for (var i=first;i<=second; i++){
+    //               console.log("hospitalization_fired");
+    //             classchanger(i,'hospitalization');}
+    //       }
+    //       else{
+    //           for (var i=second;i<=first; i++)
+    //             classchanger(i,'hospitalization');}   
+    //       return false;
           
           
-        });
+    //     });
         
         
         
-    });
+    // });
     
 // console.log("test",second);  
 
-      function classchanger(id,color){
-  // $("#"+id).removeAttr("class")     
-  $("#"+id).addClass(color);}
+//       function classchanger(id,color){
+//   // $("#"+id).removeAttr("class")     
+//   $("#"+id).addClass(color);}
   
   
 
 var $ = jQuery;
 var style ='';
+var first;
+
 $('.click_btn').on('click', function(e) {
   e.preventDefault();
   style = $(this).data().style;
@@ -208,30 +210,42 @@ $('.click_btn').on('click', function(e) {
   let clickedID=$(this).attr('id');
   clicked.push(clickedID);
   $(this).removeClass().addClass(style);
+  first = this.id;
  });
-
-  $("#btnCancel").on('click',() => {
-    if(clicked.length) {
-      let lastClicked = clicked.pop();
-      $(`td#${lastClicked}`).removeClass();
+ 
+ $("#our_calendar td").hover(function() {
+    const id = Number($(this).attr('id'));
+    // console.log(id);
+    console.log("first",first);
+    
+    for(var j = first;j <= id; j++){
+      $("#"+j).addClass("hospitalization");
     }
   });
 
 
-// $(function() {
-//   let clicked = [];
-//   $("#our_calendar td").click(function() {
-//     let clickedID = $(this).attr('id');
-//     clicked.push(clickedID);
-//     $(this).addClass("red");
-//   });
-//   $("#btnCancel").on('click',() => {
-//     if(clicked.length) {
-//       let lastClicked = clicked.pop();
-//       $(`td#${lastClicked}`).removeClass("red");
-//     }
-//   });
-// });
+  
+  
+  $(function() {
+  // let clicked = [];
+  let redoClicked = [];
+  $("#btnCancel").on('click',() => {
+    if(clicked.length) {
+      let lastClicked = clicked.pop();
+      redoClicked.push(lastClicked);
+      $(`td#${lastClicked}`).removeClass();
+    }
+  });
+  $("#btnRedo").on('click',() => {
+    if(redoClicked.length) {
+      let lastClicked = redoClicked.pop();
+      clicked.push(lastClicked);
+      $(`td#${lastClicked}`).addClass("hospitalization");
+      console.log("clicked",clicked);
+    }
+  });
+});
+
 
 
 //  $("button").click(function(){
@@ -243,6 +257,7 @@ $('.click_btn').on('click', function(e) {
 //     });
 //   });
 
-jQuery(":hover").each(function () {
-   console.log($(this).html());
-});
+// $("#our_calendar td").hover(function() {
+//   const id = $(this).attr('id');
+//   // console.log(id);
+// });
