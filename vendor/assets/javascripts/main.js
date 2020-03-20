@@ -30,14 +30,14 @@ $('.click_btn').on('click', function(e) {
     if(clicked.length) {
       let lastClicked = clicked.pop();
       redoClicked.push(lastClicked);
-      $(`td#${lastClicked}`).removeClass();
+      $(`td#${lastClicked} div`).removeClass();
     }
   });
   $("#btnRedo").on('click',() => {
     if(redoClicked.length) {
       let lastClicked = redoClicked.pop();
       clicked.push(lastClicked);
-      $(`td#${lastClicked}`).addClass("hospitalization");
+      $(`td#${lastClicked} div`).addClass("hospitalization");
       console.log("clicked",clicked);
     }
   });
@@ -103,36 +103,22 @@ function CalendarSelection() {
         $daysRange([range[0], range[0]]).addClass('is-active');
       }
     }
-    
-  else if (style=="surgery_outpatient"){
-    
+  else if(style=="surgery"){
       let clickedID=$(this).attr('id');
       
       const surgery=[-1,-1];
       
       clicked.push(clickedID);
-      $(this).removeClass().addClass(style);
+      $(this).children().removeClass().addClass(style);
       
-      surgery[0]=$days.index(this);
-      surgery[1]=surgery[0]+60;
-      $daysRange(surgery).addClass('surgery_limit');
-
-  }else if(style=="surgery_hospitalization"){
-      let clickedID=$(this).attr('id');
-      
-      const surgery=[-1,-1];
-      
-      clicked.push(clickedID);
-      $(this).removeClass().addClass(style);
-      
-      surgery[0]=$days.index(this);
+      surgery[0]=$days.index(this)+1;
       surgery[1]=surgery[0]+60;
       $daysRange(surgery).addClass('surgery_limit');
   }
   else{
       let clickedID=$(this).attr('id');
       clicked.push(clickedID);
-      $(this).removeClass().addClass(style);
+      $(this).children().removeClass().addClass(style);
   }
   
 }

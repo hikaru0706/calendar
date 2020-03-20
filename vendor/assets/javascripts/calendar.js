@@ -40,7 +40,7 @@ for (let w = 0; w <= pastmonth; w++) {
     for(let d=0; d<=35;d++){
       if (d<endDate.getDate()){
            i=i+1;
-            calendarHtml += '<td id='+'"'+i+'"'+'class="day"'+' data-day='+contractdate.getFullYear()+'/'+(contractdate.getMonth()+1)+'/'+(d+1)+'>' + dayCount + '</td>';
+            calendarHtml += '<td id='+'"'+i+'"'+'class="day"'+' data-day='+contractdate.getFullYear()+'/'+(contractdate.getMonth()+1)+'/'+(d+1)+'><div>'+ dayCount +'</div></td>';
       }
       else {calendarHtml += '<td id="null"' +'class=""'+'>' + '</td>';}
             dayCount++ ;
