@@ -29,7 +29,21 @@ return $days.slice(rng[0], rng[1] + 1);
 });
 
   function erase(){
-    
+    if($(this).children().hasClass('surgery')){
+        
+        $(this).children().removeClass();
+
+        let index = $(".day").index(this);
+          $(".day").slice(index + 1, index + 120).each(function() {
+          var classIndex = $(this).data('surgery-layer');
+          
+          classIndex += -1;
+            
+          $(this).removeClass(layerArray[classIndex]);
+          $(this).data('surgery-layer', classIndex);
+          });
+    }
+    $(this).children().removeClass();
   }
 
   function hospitalization(){
@@ -98,7 +112,7 @@ return $days.slice(rng[0], rng[1] + 1);
   function registerRange() {
 
   if($('.erase').hasClass('erase-clicked')){
-    $(this).children().removeClass();
+    erase.call(this);
   }
 
   else if(style=="hospitalization"){  
