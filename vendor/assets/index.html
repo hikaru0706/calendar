@@ -1,14 +1,18 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="tippy.min.js"></script>
 
 <link rel="stylesheet" href="stylesheets/main.css" type="text/css" />
 
 
-<button id="button1" class="click_btn" data-style="hospitalization">入院</button>
+<button id="button1" class="click_btn" title ="Tooltip" data-style="hospitalization">hospitalization</button>
 <button id="button2" class="click_btn" data-style="outpatients">通院</button>
 <button id="button4" class="click_btn" data-style="surgery">手術</button>
 <button id="btnCancel">undo</button>
-<!--<button id="btnRedo">redo</button>-->
+<button id="btnRedo">redo</button>
+<button id="btnEdit" class="erase">erase</button>
+<button id="btnEdit" data-style="greyout">select</button>
+
 
 
 
@@ -18,4 +22,8 @@
 
 <script type="text/javascript" src="javascripts/calendar.js"></script>
 <script type="text/javascript" src="javascripts/main.js"></script>
+<!--<script type="text/javascript" src="javascripts/tooltip.js"></script>-->
+<!--<script type="text/javascript" src="javascripts/btncanel.js"></script>-->
+
+
 

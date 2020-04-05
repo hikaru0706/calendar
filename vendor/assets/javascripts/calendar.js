@@ -37,15 +37,20 @@ for (let w = 0; w <= pastmonth; w++) {
     calendarHtml += '<th>'+ contractdate.getFullYear()+'/'+(contractdate.getMonth()+1)+'</th>';
     dayCount = 1;
     // for (let d = 0; d < endDate.getDate(); d++) {
-    for(let d=0; d<=35;d++){
+    for(let d=0; d<=31;d++){
       if (d<endDate.getDate()){
            i=i+1;
-            calendarHtml += '<td id='+'"'+i+'"'+'class="day"'+' data-day='+contractdate.getFullYear()+'/'+(contractdate.getMonth()+1)+'/'+(d+1)+'><div>'+ dayCount +'</div></td>';
+            calendarHtml += '<td id='+'"'+i+'"'+'class="day"'+'data-surgery-layer=0'+' data-day='+contractdate.getFullYear()+'/'+(contractdate.getMonth()+1)+'/'+(d+1)+'><div>'+ dayCount +'</div></td>';
       }
       else {calendarHtml += '<td id="null"' +'class=""'+'>' + '</td>';}
             dayCount++ ;
-        
     }
+    
+    calendarHtml += '<td class="noborder"></td>';
+
+    calendarHtml += '<td class="result"></td>';
+    
+    
     calendarHtml += '</tr>';
 }
 
