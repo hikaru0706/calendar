@@ -34,7 +34,7 @@ for (let w = 0; w <= pastmonth; w++) {
 
     
     
-    calendarHtml += '<th>'+ contractdate.getFullYear()+'/'+(contractdate.getMonth()+1)+'</th>';
+    calendarHtml += '<th class="hz-header">'+ contractdate.getFullYear()+'/'+(contractdate.getMonth()+1)+'</th>';
     dayCount = 1;
     // for (let d = 0; d < endDate.getDate(); d++) {
     for(let d=0; d<=31;d++){
@@ -50,12 +50,44 @@ for (let w = 0; w <= pastmonth; w++) {
 
     calendarHtml += '<td class="result"></td>';
     
-    
     calendarHtml += '</tr>';
+    
+    // calendarHtml += '<tr>';
+    
+    // calendarHtml += '<th></th>';
+
+        
+    //       for(let d=0; d<=31;d++){
+              
+    //     }
+        
+    // for(let d=0; d<=31;d++){
+    //   if (d<endDate.getDate()){
+
+    //       calendarHtml += '<td class = hospitalization_row>' + '</td>';
+    //   }
+    // }    
+    
+        
+    // calendarHtml += '</tr>';
+        
+      for(let e=0; e<=3;e++){
+
+        calendarHtml += '<tr>';
+        calendarHtml += '<th></th>';
+
+        for(let d=0; d<=31;d++){
+          if (d<endDate.getDate()){
+            calendarHtml += '<td class =surgery_row'+e+'>' + '</td>';
+          }
+        }
+        calendarHtml += '</tr>';
+    
+      }
 }
 
 calendarHtml += '</table>';
 
-console.log("step5",calendarHtml);
+// console.log("step5",calendarHtml);
 
 document.querySelector('#calendar').innerHTML = calendarHtml;

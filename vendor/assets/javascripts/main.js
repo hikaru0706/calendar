@@ -62,7 +62,7 @@ return $days.slice(rng[0], rng[1] + 1);
         range[0]=Math.max(range[0]-60,0);
         range[1]=range[1]+120;
         
-        $daysRange(range).addClass('hospitalization_limit');
+        $("td.day").slice(range[0],range[1]).addClass('hospitalization_limit');
       }
   
       if (range[0] < 0 && range[1] < 0) { // SET START
@@ -72,35 +72,100 @@ return $days.slice(rng[0], rng[1] + 1);
     
 }
   
-  function surgery(){
+//   function surgery(){
       
-      let clickedID=$(this).attr('id');
+//       let clickedID=$(this).attr('id');
 
-      var arrLen=layerArray.length;     
+//       var arrLen=layerArray.length;     
 
-      clicked.push(clickedID);
+//       clicked.push(clickedID);
+//       $(this).children().toggleClass(style);
+      
+//       let index = $(".day").index(this);
+//       let layerChange = $(this).children().hasClass('surgery') ? 1 : -1;
+
+//       $(".day").slice(index + 1, index + 120).each(function() {
+        
+//         var classIndex = $(this).data('surgery-layer');
+        
+//           classIndex += layerChange;
+          
+//         if (layerChange === 1 && classIndex - 1 < arrLen) {
+//         $(this).addClass(layerArray[classIndex - 1]);
+//         } else if (layerChange === -1 && classIndex >= 0) {
+          
+//         $(this).removeClass(layerArray[classIndex]);
+//         }
+
+
+
+//       $(this).data('surgery-layer', classIndex);
+
+//     	});  
+    	
+// }
+  
+  function surgery2(){
+
+      let index = $(".day").index(this);
       $(this).children().toggleClass(style);
       
-      let index = $(".day").index(this);
-      let layerChange = $(this).children().hasClass('surgery') ? 1 : -1;
+      let a0=$("tr .surgery_row0").eq(index).hasClass("surgery_limit");
+      let b0=$("tr .surgery_row0").eq(index+120).hasClass("surgery_limit");
+      let a1=$("tr .surgery_row1").eq(index).hasClass("surgery_limit1");
+      let b1=$("tr .surgery_row1").eq(index+120).hasClass("surgery_limit1");
+      let a2=$("tr .surgery_row2").eq(index).hasClass("surgery_limit2");
+      let b2=$("tr .surgery_row2").eq(index+120).hasClass("surgery_limit2");
+      let a3=$("tr .surgery_row3").eq(index).hasClass("surgery_limit3");
+      let b3=$("tr .surgery_row4").eq(index+120).hasClass("surgery_limit3");
+      let a4=$("tr .surgery_row3").eq(index).hasClass("surgery_limit4");
+      let b4=$("tr .surgery_row4").eq(index+120).hasClass("surgery_limit4");     
+      
+      // console.log("0",!(a0||b0));
+      // console.log("1",!(a1||b1));
+      // console.log("2",!(a2||b2));
+      // console.log("3",!(a3||b3));
 
-      $(".day").slice(index + 1, index + 120).each(function() {
-        
-        var classIndex = $(this).data('surgery-layer');
-        
-          classIndex += layerChange;
-          
-         if (layerChange === 1 && classIndex - 1 < arrLen) {
-        $(this).addClass(layerArray[classIndex - 1]);
-        } else if (layerChange === -1 && classIndex >= 0) {
-          
-        $(this).removeClass(layerArray[classIndex]);
-         }
-
-      $(this).data('surgery-layer', classIndex);
-
-    	});  
-}
+      
+      if(!(a0||b0)){
+        $(this).toggleClass("surgery_limit");
+        $("tr .surgery_row0").slice(index+1,index+120).each(function() {
+        $(this).toggleClass("surgery_limit");
+        });
+      }
+      else if(!(a1||b1)){
+        // console.log("#");
+        $(this).toggleClass("surgery_limit1");
+        $("tr .surgery_row1").slice(index+1,index+120).each(function() {
+        $(this).toggleClass("surgery_limit1").parent().toggle();
+        });
+      }
+      else if(!(a2||b2)){
+        $(this).toggleClass("surgery_limit2");
+        $("tr .surgery_row2").slice(index+1,index+120).each(function() {
+        $(this).toggleClass("surgery_limit2").parent().toggle();
+        });
+      }
+      else if(!(a3||b3)){
+        $(this).toggleClass("surgery_limit3");
+        $("tr .surgery_row3").slice(index+1,index+120).each(function() {
+        $(this).toggleClass("surgery_limit3").parent().toggle();
+        });
+      }
+      else if(!(a4||b4)){
+        $(this).toggleClass("surgery_limit4");
+        $("tr .surgery_row4").slice(index+1,index+120).each(function() {
+        $(this).toggleClass("surgery_limit4").parent().toggle();
+        });
+      }
+      
+      // console.log(a0|b0);
+      
+      //   $("tr .surgery_row0").slice(index+1,index+120).each(function() {
+      //   $(this).addClass("surgery_limit");
+      //   });
+      
+  }
 
   function hoverRange(ev) {
     if (range[0] < 0 || (range[0] > -1 && range[1] > -1)) return; // Do nothing
@@ -121,7 +186,7 @@ return $days.slice(rng[0], rng[1] + 1);
     }
     
   else if(style=="surgery"){
-    surgery.call(this);
+    surgery2.call(this);
   }
   
   else{
